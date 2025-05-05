@@ -1,0 +1,69 @@
+.navbar {
+  position: absolute;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 13rem; /* cukup padding wajar */
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  height: 70px; 
+  overflow: hidden;
+}
+
+/* inii logo e nayyy */
+.navbar-logo {  
+  height: 200%; 
+  display: flex;
+  align-items: center;
+  margin-left: -60px;
+}
+
+.navbar-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.garis {  
+  height: 200%; 
+  display: flex;
+  align-items: center;
+  margin-left: -500px;
+}
+
+.garis img {
+  height: 50%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 4rem;
+  white-space: nowrap;
+}
+
+.nav-links li:first-child {
+  margin-left: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17.7px;
+  margin-left: 70px;
+}

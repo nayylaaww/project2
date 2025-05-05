@@ -1,0 +1,55 @@
+.game-info-container {
+    background-image: url('/bg-gameinfo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 108.5vh;
+    margin-bottom: -5rem;
+    width: 100vw;
+    padding: 5rem 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 21px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  
+  .content {
+    background-color: rgba(139, 139, 139, 0.5);
+    padding: 6rem;
+    border-radius: 2rem;
+    max-width: 1000px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    font-size: 4rem;
+    color: white;
+    background: transparent;
+    border : #000;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  }
+  
+
+
+
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  
