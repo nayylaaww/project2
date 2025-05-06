@@ -1,0 +1,49 @@
+.bege {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+  }
+  
+  .back-btn {
+    align-self: flex-start;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .game-area {
+    width: 29%;
+    height: 1500%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6) );
+    border-radius: 0px;
+    padding: -1rem;
+    margin-right: -1365px;
+  }
+  

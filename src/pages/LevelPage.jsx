@@ -12,7 +12,7 @@ function LevelPage() {
       <div className="level-container">
   {/* Baris atas */}
   <div className="level-row">
-    <button className="level-button unlocked">1</button>
+    <button className="level-button unlocked" onClick={() => navigate('/game')}>1</button>
     <button className="level-button locked">2</button>
     <button className="level-button locked">3</button>
   </div>

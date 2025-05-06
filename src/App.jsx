@@ -5,6 +5,7 @@ import Achievement from './pages/Achievment'
 import Login from './pages/Login'
 import Tutorial from './pages/Tutorial'
 import LevelPage from './pages/LevelPage'
+import Game from './pages/Game'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/levelpage" element={<LevelPage/>} />
       <Route path="/tutorial" element={<Tutorial/>} />
+      <Route path="/game" element={<Game />} />
     </Routes>
   )
 }

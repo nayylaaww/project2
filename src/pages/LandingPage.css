@@ -78,7 +78,6 @@ body, html {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto;
   display: flex;
   justify-content: center;
   animation: slideUp 0.5s ease-out;
@@ -87,35 +86,42 @@ body, html {
 
 .contact-popup {
   position: relative;
-  background-color: transparent;
+  display: inline-block;
   padding: 0;
+  margin: 0;
 }
 
 .contact-image {
-  width: 200vw;         /* bisa kamu ubah jadi px kalau mau fix */
-  max-width: 1500px;
+  width: 200%;         /* auto responsive */
+  max-width: 1500px;    /* maksimal 800px biar enak dilihat */
   height: auto;
+  display: block;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* Tombol Close */
 .close-btn {
   position: absolute;
-  top: 8px;
-  right: 12px;
-  background-color: rgba(0, 0, 0, 0.6);
+  top: 10px;
+  right: 10px;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
   cursor: pointer;
   z-index: 1001;
+  outline: none;
+background: none;
+box-shadow: none;
 }
 
-/* Animasi muncul dari bawah */
+.close-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 @keyframes slideUp {
   from {
     transform: translateY(100%);
