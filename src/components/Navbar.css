@@ -1,29 +1,26 @@
 .navbar {
   position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   max-width: 1500px;
-  margin: 0 auto; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 13rem; /* cukup padding wajar */
+  padding: 1rem 3rem;
   background: rgba(0, 0, 0, 0.3);
   color: white;
-  top: 2rem;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
   border-radius: 2rem;
-  height: 70px; 
-  overflow: hidden;
+  height: 70px;
+  box-sizing: border-box;
+  z-index: 1000;
 }
 
-/* inii logo e nayyy */
-.navbar-logo {  
-  height: 200%; 
+.navbar-logo {
+  height: 100%;
   display: flex;
   align-items: center;
-  margin-left: -60px;
 }
 
 .navbar-logo img {
@@ -32,11 +29,12 @@
   object-fit: contain;
   display: block;
 }
-.garis {  
-  height: 200%; 
+
+.garis {
+  height: 100%;
   display: flex;
   align-items: center;
-  margin-left: -500px;
+  margin-left: 1rem;
 }
 
 .garis img {
@@ -48,22 +46,25 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
+  margin-left: auto;
+  gap: 9rem;
 }
 
 .nav-links li {
-  margin-left: 4rem;
   white-space: nowrap;
 }
 
-.nav-links li:first-child {
-  margin-left: 0;
-}
-
-.nav-links a {
+.nav-links a,
+.contact-btn {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 17.7px;
-  margin-left: 70px;
+  font-size: 17.9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
 }

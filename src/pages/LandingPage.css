@@ -70,3 +70,59 @@ body, html {
   width: 100%;
   height: 100%;
 }
+
+/* inii bagian kontakk */
+
+.contact-popup-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  animation: slideUp 0.5s ease-out;
+  z-index: 1000;
+}
+
+.contact-popup {
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+}
+
+.contact-image {
+  width: 200vw;         /* bisa kamu ubah jadi px kalau mau fix */
+  max-width: 1500px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Tombol Close */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Animasi muncul dari bawah */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
