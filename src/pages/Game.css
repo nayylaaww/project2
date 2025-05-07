@@ -12,7 +12,9 @@
 
 .game-container {
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
+    margin-top: 50px;
+    margin-bottom: -50px;
     color: white;
     display: flex;
     flex-direction: column;
