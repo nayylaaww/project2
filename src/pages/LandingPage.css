@@ -92,8 +92,8 @@ body, html {
 }
 
 .contact-image {
-  width: 200%;         /* auto responsive */
-  max-width: 1500px;    /* maksimal 800px biar enak dilihat */
+  width: 200%;         
+  max-width: 1500px;  
   height: auto;
   display: block;
   border-radius: 15px;

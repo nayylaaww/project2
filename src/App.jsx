@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Tutorial from './pages/Tutorial'
 import LevelPage from './pages/LevelPage'
 import Game from './pages/Game'
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/levelpage" element={<LevelPage/>} />
       <Route path="/tutorial" element={<Tutorial/>} />
       <Route path="/game" element={<Game />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   )
 }

@@ -1,0 +1,14 @@
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyATZ_Oj-0WBImrDoI4w2y_ok-J0VF5DUKE",
+  authDomain: "algorithmics-universe.firebaseapp.com",
+  projectId: "algorithmics-universe",
+  storageBucket: "algorithmics-universe.firebasestorage.app",
+  messagingSenderId: "982328538573",
+  appId: "1:982328538573:web:d9c4f892a82540d1ef0084"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export default app;

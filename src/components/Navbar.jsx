@@ -13,7 +13,7 @@ function Navbar({ onContactClick }) {
         <img src="/garis.png" alt="Garis" />
       </div>
     </div>
-    
+
       <ul className="nav-links">
         <li><Link to="/gameinfo">GAME INFO</Link></li>
         <li><Link to="/achievement">ACHIEVMENTS</Link></li>

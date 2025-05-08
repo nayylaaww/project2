@@ -4,6 +4,7 @@ import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import './GameNavbar.css'; 
 import BackButton from './ButtonNavbar/BackButton';
 import ClearButton from './ButtonNavbar/ClearButton';
+import RunButton from './ButtonNavbar/RunButton';
 
 const GameNavbar = () => {
   const navigate = useNavigate();
@@ -19,10 +20,16 @@ const GameNavbar = () => {
 
   return (
     <div className="game-navbar">
-        <BackButton></BackButton>
-        <ClearButton></ClearButton>
+      <BackButton />
+      
+      <div className="right-buttons">
+        <ClearButton />
+      </div>
+
+      <div className="run-buttons">
+        <RunButton/>
+      </div>
     </div>
-    
   );
 };
 
