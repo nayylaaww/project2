@@ -18,26 +18,20 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
-      <form className="login-form" onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-        <p>Belum punya akun? <Link to="/register">Daftar di sini</Link></p>
-      </form>
+
+<div className="login-page">
+  <div className="login-form">
+  <button className="close-btn" onClick={() => navigate('/')}>🏠︎</button>
+    <div className="tulisan-login-wrapper">
+      <img src="/tulisan-login.png" alt="Login" className="tulisan-login" />
     </div>
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button>Login</button>
+    <p>Belum punya akun? <a href="/Register">Daftar</a></p>
+  </div>
+</div>
+
   );
 };
 

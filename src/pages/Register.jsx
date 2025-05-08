@@ -2,6 +2,8 @@ import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase/firebaseConfig"; 
 import { useNavigate } from "react-router-dom";
+import './Register.css';
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -21,6 +23,7 @@ const Register = () => {
   };
 
   return (
+    <div className="Regist-page">
     <div>
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
@@ -40,6 +43,7 @@ const Register = () => {
         /><br />
         <button type="submit">Daftar</button>
       </form>
+    </div>
     </div>
   );
 };

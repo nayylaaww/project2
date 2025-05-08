@@ -1,51 +1,82 @@
-.login-page{
-    background-image: url('/public/bg-login.png');
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url('/bg-login.png');
-        background-size: cover;
-        background-position: top center;
-        background-repeat: no-repeat;
-      }
-  
-  
-  .login-form {
-    background-color: rgba(139, 139, 139, 0.5);
-    padding: 160px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 1400px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .login-form h2 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  
-  .login-form input {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-  
-  .login-form button {
-    padding: 12px;
-    background-color: #00b894;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .login-form p {
-    font-size: 14px;
-    text-align: center;
-  }
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/bg-login.png'); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-form {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+
+.login-form input,
+.login-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+}
+
+.login-form  {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+}
+
+.login-form input {
+  color: white; 
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6));
+}
+
+.login-form input::placeholder {
+  color: #ddd; 
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center isi form */
+  background-color: rgba(255, 255, 255, 0.2); /* transparan */
+  padding: 230px;
+  border-radius: 15px;
+  width: 750px;
+  height: 200px;
+}
+
+.tulisan-login-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.tulisan-login {
+  width: 800px;
+  height: auto;
+  margin-top: -100px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 11rem;
+  right: 33rem;
+  font-size: 5rem;
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  width: 100px;
+
+}
