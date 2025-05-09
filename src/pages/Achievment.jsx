@@ -1,5 +1,5 @@
 import React from 'react';
-import './LevelPage.css';
+import './Achievment.css';
 import { useNavigate } from 'react-router-dom';
 
 function LevelPage() {
@@ -23,8 +23,6 @@ function LevelPage() {
     <button className="level-button locked">5</button>
   </div>
 </div>
-
-
     </div>
     </div>
   );

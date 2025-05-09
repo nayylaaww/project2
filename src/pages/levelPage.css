@@ -14,9 +14,9 @@
 
 .close-btn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
+  margin-top: -10px;
+  margin-right: -45px;
+  font-size: 3rem;
   background: none;
   border: none;
   color: white;
@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-/* Tombol level dasar */
+
 .level-button {
   width: 230px;
   height: 220px;
@@ -52,7 +52,6 @@
   color: white;
 }
 
-/* Tombol aktif (unlocked) */
 .unlocked {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6));
 }
@@ -61,7 +60,7 @@
   transform: scale(1.05);
 }
 
-/* Tombol terkunci (locked) */
+
 .locked {
   background: gray !important;
   color: #ccc !important;
@@ -69,7 +68,7 @@
   pointer-events: none;
 }
 
-/* Jangan dihapus */
+
 .transparant {
   background-color: rgba(139, 139, 139, 0.5);
   padding: 5rem;
