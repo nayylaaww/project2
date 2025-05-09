@@ -17,7 +17,6 @@
     font-family: 'Times New Roman', Times, serif;
   }
   
-  
   .content {
     background-color: rgba(139, 139, 139, 0.5);
     padding: 6rem;
@@ -25,25 +24,21 @@
     max-width: 1000px;
   }
 
-  .close-btn {
+  .close-btn-home {
     position: absolute;
-    top: 50px;
-    right: 20px;
-    font-size: 4rem;
+    top: -2rem;
+    right: 0rem;
+    font-size: 3rem;
+    background: none;
+    border: none;
     color: white;
-    background: transparent;
-    border : #000;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
   }
-  
-  .close-btn:hover {
-    color: red;
+
+  .close-btn-home :hover {
+background-color: blue;
   }
-  
-
-
-
 
   html, body {
     margin: 0;

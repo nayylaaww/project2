@@ -12,16 +12,18 @@
   justify-content: center;
 }
 
-.close-btn {
+.close-btn-home {
   position: absolute;
-  margin-top: -10px;
-  margin-right: -45px;
+  top: -2rem;
+  right: 0rem;
   font-size: 3rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
+  z-index: 1001;
 }
+
 
 .level-container {
   display: flex;

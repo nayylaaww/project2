@@ -11,7 +11,7 @@ function GameInfo() {
 
   return (
     <div className="game-info-container">
-      <button className="close-btn" onClick={handleClose}>&times;</button>
+     <button className="close-btn-home" onClick={handleClose}>🏠︎</button>
       <div className="content">
         <p>
         Lorem ipsum dolor sit amet, pembentuk adipiscing elit. Komodo ligula eget dolor Aenea. Massa Aenea. 

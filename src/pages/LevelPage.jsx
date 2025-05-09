@@ -8,7 +8,7 @@ function LevelPage() {
   return (
     <div className="level-page-container">
           <div className="transparant">
-      <button className="close-btn" onClick={() => navigate('/')}>🏠︎</button>
+          <button className="close-btn-home" onClick={() => navigate('/')}>🏠︎</button>
       <div className="level-container">
   {/* Baris atas */}
   <div className="level-row">

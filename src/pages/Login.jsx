@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
+import { auth, db } from '../firebase/firebaseConfig';  
+import { doc, setDoc } from 'firebase/firestore';       // bwatt nyimpenn user googleeeeeeeeeeeeeee nayyyyyyy
 import './Login.css';
-
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const auth = getAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,32 +17,59 @@ const Login = () => {
       .catch((error) => alert(error.message));
   };
 
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      await setDoc(doc(db, "users", user.uid), {
+        username: user.displayName,
+        email: user.email,
+        uid: user.uid,
+      }, { merge: true });
+
+      navigate('/');
+    } catch (error) {
+      alert("Gagal login dengan Google: " + error.message);
+    }
+  };
+
   return (
-<div className="login-page">
-  <div className="login-form">
-    <button className="close-btn" onClick={() => navigate('/')}>🏠︎</button>
-    <div className="tulisan-login-wrapper">
-      <img src="/tulisan-login.png" alt="Login" className="tulisan-login" />
+    <div className="login-page">
+      <button className="back-btn-home" onClick={() => navigate('/')}>🏠︎</button>
+
+      <div className="login-form">
+        <div className="tulisan-login-wrapper">
+          <img src="/tulisan-login.png" alt="Login" className="tulisan-login" />
+        </div>
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+
+        <div className="btn-group">
+          <button className="login-btn" onClick={handleLogin}>Login</button>
+          <button className="register-btn" onClick={() => navigate('/Register')}>Register</button>
+        </div>
+
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <button className="login-btn" onClick={handleGoogleLogin}>
+            Login dengan Google
+          </button>
+        </div>
+      </div>
     </div>
-
-    <input
-      type="email"
-      placeholder="Email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-    />
-    <button onClick={handleLogin}>Login</button>
-
-    <p>Belum punya akun? <Link to="/Register">Daftar</Link></p>
-  </div>
-</div>
-
   );
 };
 

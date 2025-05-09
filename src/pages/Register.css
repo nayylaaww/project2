@@ -1,10 +1,21 @@
-.Regist-page {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('/bg-login.png'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+@import './Login.css';
+
+.tulisan-register {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-top: -50px;
+}
+
+
+.register-btn {
+  background-color: #000000 !important;
+  border-radius: 15px !important;
+  text-align: center !important;
+  width: 200px;
+  height: 60px;
+}
+
+.register-btn:hover {
+  background-color: #888888 !important;
+}
