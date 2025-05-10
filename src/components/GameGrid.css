@@ -1,0 +1,21 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 50px); /* 4 karena 4 kolom */
+  gap: 4px;
+  margin: auto;
+}
+
+.tile {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.tile.wall {
+  background-color: #444;
+}
+
+.tile.floor {
+  background-color: #b6fcd5;
+}

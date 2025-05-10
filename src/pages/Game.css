@@ -10,19 +10,6 @@
     justify-content: center;
   }
 
-.game-container {
-    width: 100vw;
-    height: 150vh;
-    margin-top: 50px;
-    margin-bottom: -50px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem;
-  }
-  
   .back-btn {
     align-self: flex-start;
     background-color: #444;
