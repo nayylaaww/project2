@@ -20,7 +20,8 @@
 .in {
     text-align: center;
     font-size: 38px;
-    background: rgba(187, 184, 184, 0.8);
+    background: rgba(141, 133, 133, 0.8);
+    border-radius: 15px;
     width: 350px;
     margin-top: -8px;
     border-radius: 40px;
@@ -35,3 +36,92 @@
     background-color: white;
     margin-top: -20px;
 }
+
+.instructions-wrapper {
+  position: relative;
+  margin-top: 15px; 
+  height: 300px; 
+}
+
+.instructions-bg {
+  position: relative;
+  background: rgba(141, 133, 133, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  height: 100%;
+  overflow: visible;
+  
+}
+
+.instruction-item {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6));
+  color: white;
+  width: 370px;           
+  padding: 10px 20px;     
+  cursor: grab;
+  font-size: 20px;
+  font-weight: 500;
+  user-select: none;
+  text-align: center;   
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.garis-hor2 {
+    border: none; 
+    height: 3px;
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 55px;
+}
+
+.program-section {
+  padding: 60px;
+  margin-top: -95px;
+}
+
+.program-title {
+    text-align: center;
+    font-size: 38px;
+    background: rgba(141, 133, 133, 0.8);
+    border-radius: 15px;
+    width: 350px;
+    margin-top: 50px;
+    border-radius: 40px;
+    letter-spacing: 6px;
+}
+
+.program-dropzone {
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(141, 133, 133, 0.8);
+  border-radius: 12px;
+  padding: 30px;
+  width: 400px;
+  margin-left: -60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #222;
+}
+
+.program-dropzone::-webkit-scrollbar {
+  width: 6px;
+}
+
+.program-dropzone::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}
+
+.dropped-instruction {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6));
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  user-select: none;  
+}
+

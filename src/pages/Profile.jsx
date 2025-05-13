@@ -35,12 +35,14 @@ function Profile() {
   if (!userData) return <p>Loading...</p>;
 
   return (
+    
     <div className="profile-container">
       <img
         src={userData.photoURL || '/default-profile.png'}
         alt="Profile"
         className="profile-img"
       />
+      <button className="close-btn-home" onClick={() => navigate('/')}>🏠︎</button>
       <h2>{userData.username}</h2>
       <p>{userData.email}</p>
       <button onClick={handleLogout}>Log Out</button>
