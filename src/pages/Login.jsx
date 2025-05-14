@@ -41,6 +41,7 @@ const Login = () => {
   };
 
   return (
+
     <div className="login-page">
       <button className="back-btn-home" onClick={() => navigate('/')}>🏠︎</button>
 
@@ -74,6 +75,7 @@ const Login = () => {
         </button>
       </div>
     </div>
+
   );
 };
 

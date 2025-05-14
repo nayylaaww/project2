@@ -55,16 +55,7 @@ const Game = () => {
         <GameNavbar onSlideToggle={() => setSlideOpen(true)} />
         <GameSlidebar isOpen={slideOpen} onClose={() => setSlideOpen(false)} />
 
-        <div className="game-area">
-          <GameGrid map={map} playerPosition={playerPosition} />
-          <div className="controller">
-            <button onClick={() => movePlayer('up')}>↑</button>
-            <button onClick={() => movePlayer('left')}>←</button>
-            <button onClick={() => movePlayer('down')}>↓</button>
-            <button onClick={() => movePlayer('right')}>→</button>
-            <button onClick={activateLight}>Power ⚠︎</button>
-          </div>
-        </div>
+  
       </div>
     </div>
   );
