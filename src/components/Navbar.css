@@ -75,3 +75,21 @@
   color:   #646cff;
 }
 
+.profile-menu {
+  list-style: none;
+  width: 35px;
+  height: 35px;
+  margin-right: -9rem;
+  margin-top: -40px;
+  cursor: pointer;
+
+}
+
+.profile-icon {
+  width: 100px;
+  height: 100px;
+   margin-right: -9rem;
+  margin-top: -5px;
+  object-fit: cover;
+ background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6));
+}

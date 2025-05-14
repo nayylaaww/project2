@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useNavigate, Link } from 'react-router-dom';
-import { auth, db } from '../firebase/firebaseConfig';  
-import { doc, setDoc } from 'firebase/firestore';       // bwatt nyimpenn user googleeeeeeeeeeeeeee nayyyyyyy
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth, db } from '../firebase/firebaseConfig';
+import { doc, setDoc } from 'firebase/firestore';
 import './Login.css';
 
 const Login = () => {
@@ -50,12 +54,14 @@ const Login = () => {
           placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
+          className="input-email"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          className="input-password"
         />
 
         <div className="btn-group">
@@ -63,11 +69,9 @@ const Login = () => {
           <button className="register-btn" onClick={() => navigate('/Register')}>Register</button>
         </div>
 
-        <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <button className="login-btn" onClick={handleGoogleLogin}>
-            Login dengan Google
-          </button>
-        </div>
+        <button className="google-login-btn" onClick={handleGoogleLogin}>
+          Login dengan Google
+        </button>
       </div>
     </div>
   );

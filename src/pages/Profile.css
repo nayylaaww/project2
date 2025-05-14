@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 20px;
   color: #fff;
   background-image: url('/bg-profile.png'); 
   background-size: cover;
@@ -31,19 +31,20 @@
   }
   
   .logout-btn {
-    width: 100px;
-    height: 100px;
-    background-color: #00ff99;
+    width: 260px;
+    height: 60px;
+    background-color: #000000;
     border: none;
-    border-radius: 8px;
-    color: #000;
+    border-radius: 30px;
+    color: #ffffff;
     font-weight: bold;
+    font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .logout-btn:hover {
-    background-color: #00cc77;
+    background-color:  #9d909e;
   }
   
   .close-btn-home {

@@ -1,5 +1,4 @@
 .login-page {
-  position: relative;
   height: 100vh;
   width: 100vw;
   background-image: url('/bg-login.png');
@@ -8,98 +7,99 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.login-container {
-  background-color: #202020;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  width: 400px;
-  max-width: 90%;
-}
-
-.tulisan-login {
-  max-width: 800px;
-  height: auto;
-  margin-top: -50px;
+  position: relative;
 }
 
 .login-form {
-  width: 1740px;
-  padding: 65px 50px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(139, 139, 139, 0.5);
+  padding: 50px;
+  height: 500px;
   border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  width: 1200px;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  color: white;
+  gap: 40px;
 }
 
-
-.login-form input {
-  padding: 15px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-}
-
-.btn-wrapper {
-  margin-top: 15px;
+.tulisan-login-wrapper {
   text-align: center;
+}
+
+.tulisan-login {
+  max-width: 70%;
+  height: auto;
+}
+
+
+.input-email,
+.input-password {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(112, 35, 167, 0.6), rgba(0, 15, 27, 0.6));
+  width: 300px;
+  padding: 15px 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  color: white ;
 }
 
 
 .login-btn {
+  width: 160px;
+  height: 60px;
+  padding: 12px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
   background-color: #000000;
   color: white;
-  width: 100px;
-  height: 100px;
-  font-size: 18px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-
 .login-btn:hover {
-  background-color: #115e59;
+  background-color:  #9d909e;
 }
 
 
 .register-btn {
+  width: 160px;
+  height: 60px;
+  padding: 12px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
   background-color: #000000;
   color: white;
-  padding: 10px 55px;
-  font-size: 18px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .register-btn:hover {
-  background-color: #581c87;
+  background-color:  #9d909e;
 }
 
-/* Tombol Google */
+
 .google-login-btn {
+  width: 260px;
+  height: 60px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
   background-color: #4285F4;
   color: white;
-  padding: 10px 35px;
-  font-size: 18px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .google-login-btn:hover {
   background-color: #3367D6;
 }
+
 
 .back-btn-home {
   position: absolute;
@@ -113,3 +113,8 @@
   z-index: 1001;
 }
 
+.btn-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}

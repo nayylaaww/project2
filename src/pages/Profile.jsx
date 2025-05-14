@@ -45,7 +45,10 @@ function Profile() {
       <button className="close-btn-home" onClick={() => navigate('/')}>🏠︎</button>
       <h2>{userData.username}</h2>
       <p>{userData.email}</p>
-      <button onClick={handleLogout}>Log Out</button>
+
+      <button className="logout-btn"
+      onClick={handleLogout}>Log Out</button>
+      
     </div>
   );
 }

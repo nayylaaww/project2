@@ -35,24 +35,27 @@ const Register = () => {
           <img src="/tulisan-register.png" alt="Register" className="tulisan-login" />
         </div>
 
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+              <input
+                type="text"
+                placeholder="Username"
+                className="input-username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="input-email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className="input-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
         <div className="btn-group">
           <button className="register-btn" onClick={handleRegister}>Register</button>
