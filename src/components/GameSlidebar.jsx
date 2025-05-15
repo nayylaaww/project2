@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './GameSlidebar.css';
 
-const instructions = [
+const defaultInstructions = [
   'Berjalan maju ↑',
   'Melompat ⤒',
   'Putar ke kiri ↶',
@@ -10,23 +10,54 @@ const instructions = [
 ];
 
 const GameSlidebar = ({ isOpen, onClose }) => {
-  const handleDragStart = (e, instruction) => {
-    e.dataTransfer.setData('text/plain', instruction);
+  const [programList, setProgramList] = useState([]);
+
+  const handleDrop = (e, repeatIndex = null) => {
+    e.preventDefault();
+    const type = e.dataTransfer.getData('type');
+    const value = e.dataTransfer.getData('value');
+
+    if (type === 'repeat') {
+      const count = parseInt(value, 10) || 2;
+      const newBlock = { type: 'repeat', count, children: [] };
+      setProgramList([...programList, newBlock]);
+    } else if (type === 'instruction') {
+      if (repeatIndex !== null) {
+        
+        const updatedList = [...programList];
+        updatedList[repeatIndex].children.push({ type: 'instruction', value });
+        setProgramList(updatedList);
+      } else {
+      
+        setProgramList([...programList, { type: 'instruction', value }]);
+      }
+    }
+  };
+
+  const handleDragStart = (e, type, value) => {
+    e.dataTransfer.setData('type', type);
+    e.dataTransfer.setData('value', value);
+  };
+
+  const handleDelete = (index, nestedIndex = null) => {
+    const updatedList = [...programList];
+    if (nestedIndex === null) {
+      updatedList.splice(index, 1);
+    } else {
+      updatedList[index].children.splice(nestedIndex, 1);
+    }
+    setProgramList(updatedList);
   };
 
   const RepeatBlock = () => {
     const [count, setCount] = useState(2);
 
-    const handleDragStartRepeat = (e) => {
-      e.dataTransfer.setData('text/plain', `Mengulang ${count} instruksi`);
-    };
-
     return (
       <div
         className="instruction-item"
         draggable
-        onDragStart={handleDragStartRepeat}
-        style={{ position: 'absolute', top: `${20 + instructions.length * 60}px`, left: '24px' }}
+        onDragStart={(e) => handleDragStart(e, 'repeat', count)}
+        style={{ position: 'absolute', top: `${20 + defaultInstructions.length * 60}px`, left: '24px' }}
       >
         Mengulang{' '}
         <input
@@ -48,24 +79,20 @@ const GameSlidebar = ({ isOpen, onClose }) => {
       </div>
 
       <div className="garis-hor"></div>
+
       <div className="instructions-wrapper">
         <div className="instructions-bg">
-          {instructions.map((instr, index) => (
+          {defaultInstructions.map((instr, index) => (
             <div
               key={index}
               className="instruction-item"
               draggable
-              onDragStart={(e) => handleDragStart(e, instr)}
-              style={{
-                position: 'absolute',
-                top: `${20 + index * 60}px`,
-                left: '24px',
-              }}
+              onDragStart={(e) => handleDragStart(e, 'instruction', instr)}
+              style={{ position: 'absolute', top: `${20 + index * 60}px`, left: '24px' }}
             >
               {instr}
             </div>
           ))}
-
           <RepeatBlock />
         </div>
       </div>
@@ -78,14 +105,38 @@ const GameSlidebar = ({ isOpen, onClose }) => {
         <div
           className="program-dropzone"
           onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            const droppedInstr = e.dataTransfer.getData('text/plain');
-            const container = document.createElement('div');
-            container.className = 'dropped-instruction';
-            container.textContent = droppedInstr;
-            e.target.appendChild(container);
-          }}
-        ></div>
+          onDrop={handleDrop}
+        >
+          {programList.map((instr, index) => {
+            if (instr.type === 'instruction') {
+              return (
+                <div key={index} className="dropped-instruction">
+                  {instr.value}
+                  <button className="delete-button" onClick={() => handleDelete(index)}>×</button>
+                </div>
+              );
+            } else if (instr.type === 'repeat') {
+              return (
+                <div key={index} className="repeat-block">
+                  🔁 Mengulang {instr.count}x:
+                  <div
+                    className="repeat-inner-dropzone"
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => handleDrop(e, index)}
+                  >
+                    {instr.children.map((child, cIndex) => (
+                      <div key={cIndex} className="dropped-instruction nested">
+                        {child.value}
+                        <button className="delete-button" onClick={() => handleDelete(index, cIndex)}>×</button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
       </div>
     </div>
   );
