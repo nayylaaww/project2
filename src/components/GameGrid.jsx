@@ -34,7 +34,7 @@ const GameGrid = ({ map, playerPosition }) => {
             >
               <img src={tileImg} alt="tile" className="tile-img" />
               {isPlayerHere && (
-                <img src={characterImg} alt="player" className="player-img" />
+                <img src={characterImg} alt="player" className="player-img" />
               )}
             </div>
           );

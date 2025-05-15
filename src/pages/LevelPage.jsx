@@ -7,6 +7,11 @@ function LevelPage() {
 
   return (
     <div className="level-page-container">
+
+       <div className="logo">
+                <img src="/logo.png" alt="logo-img" />
+            </div>
+
           <div className="transparant">
           <button className="close-btn-home" onClick={() => navigate('/')}>🏠︎</button>
       <div className="level-container">

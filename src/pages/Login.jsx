@@ -43,6 +43,11 @@ const Login = () => {
   return (
 
     <div className="login-page">
+
+            <div className="logo">
+                <img src="/logo.png" alt="logo-img" />
+            </div>
+
       <button className="back-btn-home" onClick={() => navigate('/')}>🏠︎</button>
 
       <div className="login-form">
@@ -73,6 +78,7 @@ const Login = () => {
         <button className="google-login-btn" onClick={handleGoogleLogin}>
           Login dengan Google
         </button>
+        
       </div>
     </div>
 

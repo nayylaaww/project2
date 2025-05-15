@@ -28,6 +28,11 @@ const Register = () => {
 
   return (
     <div className="login-page">
+
+        <div className="logo">
+                <img src="/logo.png" alt="logo-img" />
+            </div>
+
       <button className="back-btn-home" onClick={() => navigate('/')}>🏠︎</button>
 
       <div className="login-form">

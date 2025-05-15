@@ -1,14 +1,18 @@
 .grid-container {
   position: relative;
-  width: 800px; /* sesuaikan */
-  height: 600px; /* sesuaikan */
+  width: 800px; 
+  height: 600px; 
   margin: auto;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: hidden;
 }
 
 .tile {
   position: absolute;
   width: 64px;
-  height: 64px;
+  height: 32px;
+  z-index: 1;
 }
 
 .tile-img {
@@ -18,7 +22,8 @@
 
 .player-img {
   position: absolute;
-  top: -32px; /* biar kelihatan di atas blok */
+  top: -32px;
   left: 0;
-  width: 64px;
+  width: 64px;
+  z-index: 2;
 }

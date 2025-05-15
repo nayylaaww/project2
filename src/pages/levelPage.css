@@ -77,3 +77,15 @@
   border-radius: 2rem;
   max-width: 1000px;
 }
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  height: 120px;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
