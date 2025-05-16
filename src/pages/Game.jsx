@@ -17,6 +17,13 @@ const Game = () => {
   const [map, setMap] = useState(initialMap);
   const [playerPosition, setPlayerPosition] = useState({ row: 0, col: 0 });
 
+
+  const [programList, setProgramList] = useState([]);
+
+  const handleClearProgram = () => {
+    setProgramList([]);
+  };
+
   const movePlayer = (direction) => {
     const { row, col } = playerPosition;
     let newRow = row;
@@ -27,7 +34,6 @@ const Game = () => {
     if (direction === 'left') newCol--;
     if (direction === 'right') newCol++;
 
-    // Batas dan dinding
     if (
       newRow >= 0 &&
       newRow < map.length &&
@@ -50,14 +56,23 @@ const Game = () => {
   };
 
   return (
+
     <div className="bege" style={{ backgroundImage: `url('/bg-game.png')` }}>
       <div className="game-container">
-        <GameNavbar onSlideToggle={() => setSlideOpen(true)} />
-        <GameSlidebar isOpen={slideOpen} onClose={() => setSlideOpen(false)} />
 
-  
+        <GameNavbar onClear={handleClearProgram} />
+        <GameSlidebar 
+          isOpen={slideOpen} 
+          onClose={() => setSlideOpen(false)} 
+          programList={programList}
+          setProgramList={setProgramList}
+        />
+
+        {/* <GameGrid map={map} playerPosition={playerPosition} /> */}
       </div>
     </div>
+
+    
   );
 };
 

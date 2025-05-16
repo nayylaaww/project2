@@ -74,6 +74,16 @@
     margin-top: 100px;
 }
 
+.garis-hor3 {
+    border: none; 
+    height: 3px;
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: -17px;
+    margin-left: -25px;
+}
+
 .program-section {
   padding: 60px;
   margin-top: -95px;
@@ -91,12 +101,13 @@
 }
 
 .program-dropzone {
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
   background: rgba(141, 133, 133, 0.8);
   border-radius: 12px;
   padding: 30px;
   width: 400px;
+  margin-top: 10px;
   margin-left: -60px;
   display: flex;
   flex-direction: column;
@@ -166,7 +177,7 @@
 
 .repeat-inner-dropzone {
   margin-top: 10px;
-  padding: 8px;
+  padding: 15px;
   border: 1px dashed #ccc;
   background-color: #ffffff;
 }
@@ -175,6 +186,18 @@
   margin-left: 20px;
 }
 
+.hapus-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  margin-left: 185px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
 
-
+.hapus-btn:hover {
+  color: black;
+}
 

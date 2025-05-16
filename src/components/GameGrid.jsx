@@ -1,41 +1,33 @@
 import React from 'react';
 import './GameGrid.css';
-import tileNormal from '../assets/tile.png';
-import tileLight from '../assets/tile-light.png';
-import tileBlocked from '../assets/tile-blocked.png';
-import tileActivated from '../assets/tile-activated.png';
-import characterImg from '../assets/character.png';
 
-const TILE_WIDTH = 64;
-const TILE_HEIGHT = 32;
+const tileImages = {
+  0: '/tiles/ground.png',     
+  1: '/tiles/block.png',      
+  2: '/tiles/lamp-off.png',  
+  3: '/tiles/lamp-on.png'    
+};
 
 const GameGrid = ({ map, playerPosition }) => {
   return (
-    <div className="grid-container">
+    <div className="game-grid">
       {map.map((row, rowIndex) =>
-        row.map((tile, colIndex) => {
-          const isPlayerHere =
-            playerPosition.row === rowIndex &&
-            playerPosition.col === colIndex;
-
-          const x = (colIndex - rowIndex) * (TILE_WIDTH / 2);
-          const y = (colIndex + rowIndex) * (TILE_HEIGHT / 2);
-
-          let tileImg = tileNormal;
-          if (tile === 1) tileImg = tileBlocked;
-          if (tile === 2) tileImg = tileLight;
-          if (tile === 3) tileImg = tileActivated;
-
+        row.map((cell, colIndex) => {
+          const isPlayerHere = rowIndex === playerPosition.row && colIndex === playerPosition.col;
           return (
-            <div
-              key={`${rowIndex}-${colIndex}`}
-              className="tile"
-              style={{ left: `${x}px`, top: `${y}px` }}
-            >
-              <img src={tileImg} alt="tile" className="tile-img" />
+            <div className="ground" key={`${rowIndex}-${colIndex}`}>
+              <img
+                src={tileImages[cell]}
+                alt="ground"
+                className="ground-img"
+              />
               {isPlayerHere && (
-                <img src={characterImg} alt="player" className="player-img" />
-              )}
+                <img
+                  src="/ground/player.png"
+                  alt="Player"
+                  className="player-img"
+                />
+              )}
             </div>
           );
         })
@@ -44,4 +36,4 @@ const GameGrid = ({ map, playerPosition }) => {
   );
 };
 
-export default GameGrid;
+export default GameGrid;

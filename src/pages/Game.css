@@ -36,3 +36,9 @@
     margin-right: -1365px;
   }
   
+  .game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 64px); /* ganti 4 sesuai jumlah kolom */
+  grid-auto-rows: 64px;
+  gap: 0;
+}

@@ -9,9 +9,7 @@ const defaultInstructions = [
   'Power ⚠︎',
 ];
 
-const GameSlidebar = ({ isOpen, onClose }) => {
-  const [programList, setProgramList] = useState([]);
-
+const GameSlidebar = ({ isOpen, onClose, programList, setProgramList }) => {
   const handleDrop = (e, repeatIndex = null) => {
     e.preventDefault();
     const type = e.dataTransfer.getData('type');
@@ -23,12 +21,10 @@ const GameSlidebar = ({ isOpen, onClose }) => {
       setProgramList([...programList, newBlock]);
     } else if (type === 'instruction') {
       if (repeatIndex !== null) {
-        
         const updatedList = [...programList];
         updatedList[repeatIndex].children.push({ type: 'instruction', value });
         setProgramList(updatedList);
       } else {
-      
         setProgramList([...programList, { type: 'instruction', value }]);
       }
     }
@@ -98,9 +94,12 @@ const GameSlidebar = ({ isOpen, onClose }) => {
       </div>
 
       <div className="garis-hor2"></div>
+     
 
       <div className="program-section">
         <h2 className="program-title">PROGRAM</h2>
+
+        <div className="garis-hor3"></div>
 
         <div
           className="program-dropzone"
@@ -118,11 +117,17 @@ const GameSlidebar = ({ isOpen, onClose }) => {
             } else if (instr.type === 'repeat') {
               return (
                 <div key={index} className="repeat-block">
-                  🔁 Mengulang {instr.count}x:
+                  <div className="repeat-header">
+                    <span>🔁 Mengulang {instr.count}x</span>
+                    <button onClick={() => handleDelete(index)} className="hapus-btn">×</button>
+                  </div>
                   <div
                     className="repeat-inner-dropzone"
                     onDragOver={(e) => e.preventDefault()}
-                    onDrop={(e) => handleDrop(e, index)}
+                    onDrop={(e) => {
+                      e.stopPropagation();
+                      handleDrop(e, index);
+                    }}
                   >
                     {instr.children.map((child, cIndex) => (
                       <div key={cIndex} className="dropped-instruction nested">

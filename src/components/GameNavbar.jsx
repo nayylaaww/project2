@@ -6,31 +6,27 @@ import BackButton from './ButtonNavbar/BackButton';
 import ClearButton from './ButtonNavbar/ClearButton';
 import RunButton from './ButtonNavbar/RunButton';
 
-const GameNavbar = () => {
+const GameNavbar = ({ onClear }) => {
   const navigate = useNavigate();
   const [soundOn, setSoundOn] = useState(true);
 
   const handleBack = () => {
     navigate('/level');
   };
-
   const toggleSound = () => {
     setSoundOn(!soundOn);
   };
 
   return (
     <div className="game-navbar">
-      <BackButton />
-      
+      <BackButton onClick={handleBack} />
       <div className="right-buttons">
-        <ClearButton />
+        <ClearButton onClick={onClear} />
       </div>
-
       <div className="run-buttons">
-        <RunButton/>
+        <RunButton />
       </div>
     </div>
   );
 };
-
 export default GameNavbar;
