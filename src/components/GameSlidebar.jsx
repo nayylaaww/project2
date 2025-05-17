@@ -41,7 +41,7 @@ const GameSlidebar = ({ isOpen, onClose, programList, setProgramList }) => {
       updatedList.splice(index, 1);
     } else {
       updatedList[index].children.splice(nestedIndex, 1);
-    }
+    } 
     setProgramList(updatedList);
   };
 
