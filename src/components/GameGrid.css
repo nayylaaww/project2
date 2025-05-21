@@ -1,32 +1,33 @@
 .game-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 64px);
-  grid-auto-rows: 64px;
-  gap: 0;
   position: relative;
-}
-
-.ground{
-  position: relative;
-  width: 64px;
-  height: 64px;
-  perspective: 800px;
-}
-
-.ground-img {
   width: 100%;
-  height: 100%;
-  transform: rotateX(15deg) rotateY(0deg);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  image-rendering: pixelated;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 880px;
+  margin-right: 500px;
+  transform: scale(2.0); /* <--- perbesar ukuran */
+  transform-origin: top center; /* supaya tetap di tengah atas */
 }
 
-.player-img {
+
+.floor {
   position: absolute;
+  width: 64px;
+  height: 32px;
+}
+
+.floor-img {
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: auto;
+}
+
+.character-img {
+  position: absolute;
+  top: -32px; /* Biar karakter nongol di atas tile */
   left: 0;
-  z-index: 2;
-  pointer-events: none;
+  width: 64px;
+  height: auto;
+  z-index: 10;
 }

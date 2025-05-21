@@ -21,7 +21,6 @@ function LevelPage() {
             <video
               src="/public/intro.mp4" 
               autoPlay
-              muted
               onEnded={handleSkip}
               className="intro-video"
             />

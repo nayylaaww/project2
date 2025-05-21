@@ -6,10 +6,14 @@ import GameSlidebar from '../components/GameSlidebar';
 import GameGrid from '../components/GameGrid';
 
 const initialMap = [
-  [0, 0, 1, 0],
-  [0, 1, 0, 0],
-  [0, 0, 2, 0], 
-];
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+];  
 
 const Game = () => {
   const navigate = useNavigate();
@@ -57,7 +61,7 @@ const Game = () => {
 
   return (
 
-    <div className="bege" style={{ backgroundImage: `url('/bg-game.png')` }}>
+    <div className="bege" style={{ backgroundImage: `url('/bg-game.jpg')` }}>
       <div className="game-container">
 
         <GameNavbar onClear={handleClearProgram} />
@@ -68,7 +72,7 @@ const Game = () => {
           setProgramList={setProgramList}
         />
 
-        {/* <GameGrid map={map} playerPosition={playerPosition} /> */}
+        <GameGrid map={map} playerPosition={playerPosition} />
       </div>
     </div>
 
