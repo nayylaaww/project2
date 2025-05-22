@@ -1,5 +1,7 @@
 import React from 'react';
 import './GameGrid.css';
+import Character from '../components/Character';
+
 
 const TILE_WIDTH = 64;
 const TILE_HEIGHT = 32;
@@ -7,6 +9,8 @@ const TILE_HEIGHT = 32;
 const tileImages = {
   0: '/floor.png',
   1: '/wall.png',
+  2: '/lamp-off.png',
+  3: '/lamp-on.png',
 
 };
 
@@ -27,7 +31,9 @@ const GameGrid = ({ map, playerPosition }) => {
             >
               <img src={tileImages[cell]} alt="floor" className="floor-img" />
               {isPlayerHere && (
-                <img src="/character.png" alt="character" className="character-img" />
+                
+               <Character action="walk" x={x} y={y} />
+               
               )}
             </div>
           );

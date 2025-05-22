@@ -1,14 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import './RunButton.css';
 
-const RunButton = () => {
-  const navigate = useNavigate();
-
+const RunButton = ({ onRun }) => {
   return (
-    <button className="clear-btn" onClick={() => navigate('/LevelPage')}>
+    <button className="run-btn" onClick={onRun}>
       RUN
     </button>
   );
 };
 
 export default RunButton;
+
+

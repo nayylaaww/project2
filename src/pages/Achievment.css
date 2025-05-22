@@ -1,4 +1,4 @@
-.level-page-container {
+.achie-page-container {
     background-image: url('/bg-achievment.png');
     background-size: cover;
     background-position: center;
@@ -12,67 +12,31 @@
     justify-content: center;
   }
   
-  .close-btn {
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  height: 120px;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
+.close-btn-home {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
+    top: -2rem;
+    right: 0rem;
+    font-size: 3rem;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
+    z-index: 1001;
   }
-  
-  .level-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  
-  .level-row {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .center-2 {
-    justify-content: center;
-  }
-  
 
-  .level-button {
-    width: 230px;
-    height: 220px;
-    font-size: 2.5rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    color: white;
+.close-btn-home :hover {
+background-color: blue;
   }
-  
 
-  .unlocked {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6));
-  }
-  
-  .unlocked:hover {
-    transform: scale(1.05);
-  }
-  
-
-  .locked {
-    background: gray !important;
-    color: #ccc !important;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-  
-  
-  .transparant {
-    background-color: rgba(139, 139, 139, 0.5);
-    padding: 5rem;
-    border-radius: 2rem;
-    max-width: 1000px;
-  }
