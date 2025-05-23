@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import GameNavbar from '../components/GameNavbar';
 import GameSlidebar from '../components/GameSlidebar';
 import GameGrid from '../components/GameGrid';
+import { moveOneStep, rotateDirection } from '../utils/Movement';
+
+const [facing, setFacing] = useState("SOUTH_EAST"); // default arah hadap
+
 
 const initialMap = [
   [0, 0, 0, 0, 0, 0, 0],
@@ -21,32 +25,55 @@ const Game = () => {
   const [map, setMap] = useState(initialMap);
   const [playerPosition, setPlayerPosition] = useState({ row: 0, col: 0 });
   const [programList, setProgramList] = useState([]);
+  const [isRunning, setIsRunning] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
 
+  // 🧹 Clear Program
   const handleClearProgram = () => {
     setProgramList([]);
   };
 
-  const movePlayer = (direction) => {
-    const { row, col } = playerPosition;
-    let newRow = row;
-    let newCol = col;
+const movePlayer = (direction) => {
+  const { row, col } = playerPosition;
+  let newRow = row;
+  let newCol = col;
 
-    if (direction === 'up') newRow--;
-    if (direction === 'down') newRow++;
-    if (direction === 'left') newCol--;
-    if (direction === 'right') newCol++;
+  switch (direction) {
+    case 'forward':
+      newRow += 1;
+      newCol += 1;
+      break;
+    case 'left':
+      newRow += 1;
+      newCol -= 1;
+      break;
+    case 'right':
+      newRow -= 1;
+      newCol += 1;
+      break;
+    case 'backward':
+      newRow -= 1;
+      newCol -= 1;
+      break;
+    default:
+      break;
+  }
 
-    if (
-      newRow >= 0 &&
-      newRow < map.length &&
-      newCol >= 0 &&
-      newCol < map[0].length &&
-      map[newRow][newCol] !== 1
-    ) {
-      setPlayerPosition({ row: newRow, col: newCol });
-    }
-  };
+  if (
+    newRow >= 0 &&
+    newRow < map.length &&
+    newCol >= 0 &&
+    newCol < map[0].length &&
+    map[newRow][newCol] !== 1
+  ) {
+    setPlayerPosition({ row: newRow, col: newCol });
+  }
+};
 
+
+
+
+  // 💡 Nyalakan atau matikan lampu
   const activateLight = () => {
     const { row, col } = playerPosition;
     if (map[row][col] === 2) {
@@ -62,89 +89,78 @@ const Game = () => {
     }
   };
 
-  const runProgram = () => {
-  let delay = 0;
+  // 🧠 Jalankan 1 instruksi
+const handleSingleInstruction = (command) => {
+  if (command.includes('maju')) movePlayer('forward');
+  else if (command.includes('kanan')) movePlayer('up-right');
+  else if (command.includes('kiri')) movePlayer('down-left');
+  else if (command.includes('lompat')) movePlayer('up-left'); // bisa diubah
+  else if (command.includes('Power')) activateLight();
+};
 
-  const executeInstruction = (instr, index) => {
-    if (instr.type === 'instruction') {
-      setTimeout(() => {
-        handleSingleInstruction(instr.value);
-      }, delay);
-      delay += 500; // jeda 0.5 detik antar instruksi
-    } else if (instr.type === 'repeat') {
-      for (let i = 0; i < instr.count; i++) {
-        instr.children.forEach((child) => {
-          setTimeout(() => {
-            handleSingleInstruction(child.value);
-          }, delay);
-          delay += 500;
-        });
+
+  // ▶ Jalankan seluruh program
+  const runProgram = () => {
+    let delay = 0;
+
+    const executeInstruction = (instr) => {
+      if (instr.type === 'instruction') {
+        setTimeout(() => {
+          handleSingleInstruction(instr.value);
+        }, delay);
+        delay += 600;
+      } else if (instr.type === 'repeat') {
+        for (let i = 0; i < instr.count; i++) {
+          instr.children.forEach((child) => {
+            setTimeout(() => {
+              handleSingleInstruction(child.value);
+            }, delay);
+            delay += 600;
+          });
+        }
       }
-    }
+    };
+
+    programList.forEach(executeInstruction);
+
+    const totalTime = delay + 200;
+    const timer = setTimeout(() => setIsRunning(false), totalTime);
+    setIntervalId(timer);
   };
 
-  programList.forEach((instr, index) => {
-    executeInstruction(instr, index);
-  });
-};
+  const stopProgram = () => {
+    clearTimeout(intervalId);
+    setIsRunning(false);
+  };
 
-const handleSingleInstruction = (command) => {
-  switch (command) {
-    case 'Berjalan maju ↑':
-      movePlayer('up');
-      break;
-    case 'Melompat ⤒':
-      movePlayer('up'); // nanti bisa diganti logic lompat
-      break;
-    case 'Putar ke kiri ↶':
-      // belum ada arah, bisa ditambahkan nanti
-      break;
-    case 'Putar ke kanan ↷':
-      // belum ada arah, bisa ditambahkan nanti
-      break;
-    case 'Power ⚠︎':
-      activateLight();
-      break;
-    default:
-      break;
-  }
-};
-
-const handleRunProgram = async () => {
-  for (let i = 0; i < programList.length; i++) {
-    const instr = programList[i];
-
-    if (instr.type === 'instruction') {
-      if (instr.value.includes('maju')) {
-        movePlayer('down'); 
-      } else if (instr.value.includes('kanan')) {
-        movePlayer('right');
-      } else if (instr.value.includes('kiri')) {
-        movePlayer('left');
-      } else if (instr.value.includes('lompat')) {
-        movePlayer('up');
-      } else if (instr.value.includes('Power')) {
-        activateLight();
-      }
-    }
-
-    await new Promise(resolve => setTimeout(resolve, 500)); // jeda antar perintah
-  }
-};
-
-
+  const handleToggleRun = () => {
+    if (!isRunning) runProgram();
+    else stopProgram();
+    setIsRunning(!isRunning);
+  };
 
   return (
     <div className="bege" style={{ backgroundImage: `url('/bg-game.jpg')` }}>
       <div className="game-container">
-        <GameNavbar onClear={handleClearProgram} onRun={handleRunProgram} />
+        <GameNavbar
+          onClear={handleClearProgram}
+          isRunning={isRunning}
+          onToggleRun={handleToggleRun}
+        />
+
         <GameSlidebar
           isOpen={slideOpen}
           onClose={() => setSlideOpen(false)}
           programList={programList}
           setProgramList={setProgramList}
         />
-        <GameGrid map={map} playerPosition={playerPosition} />
+
+       <GameGrid 
+        map={map} 
+        playerPosition={playerPosition}
+        isRunning={isRunning}
+      />
+
       </div>
     </div>
   );

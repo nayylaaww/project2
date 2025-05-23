@@ -6,7 +6,7 @@ import BackButton from './ButtonNavbar/BackButton';
 import ClearButton from './ButtonNavbar/ClearButton';
 import RunButton from './ButtonNavbar/RunButton';
 
-const GameNavbar = ({ onClear }) => {
+const GameNavbar = ({ onClear, isRunning, onToggleRun }) => {
   const navigate = useNavigate();
   const [soundOn, setSoundOn] = useState(true);
 
@@ -24,7 +24,7 @@ const GameNavbar = ({ onClear }) => {
         <ClearButton onClick={onClear} />
       </div>
       <div className="run-buttons">
-        <RunButton />
+        <RunButton isRunning={isRunning} onToggleRun={onToggleRun} />
       </div>
     </div>
   );

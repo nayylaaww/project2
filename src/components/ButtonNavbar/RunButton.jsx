@@ -1,13 +1,14 @@
 import './RunButton.css';
 
-const RunButton = ({ onRun }) => {
+const RunButton = ({ isRunning, onToggleRun }) => {
   return (
-    <button className="run-btn" onClick={onRun}>
-      RUN
+    <button className="run-btn" onClick={onToggleRun}>
+      {isRunning ? 'STOP' : 'RUN'}
     </button>
   );
 };
 
 export default RunButton;
+
 
 
