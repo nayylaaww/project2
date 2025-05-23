@@ -14,7 +14,7 @@ const tileImages = {
 
 };
 
-const GameGrid = ({ map, playerPosition, isRunning }) => {
+const GameGrid = ({ map, playerPosition, isRunning, facing }) => {
   return (
     <div className="game-grid">
       {map.map((row, rowIndex) =>
@@ -32,13 +32,13 @@ const GameGrid = ({ map, playerPosition, isRunning }) => {
               <img src={tileImages[cell]} alt="floor" className="floor-img" />
               {isPlayerHere && (
                 
-             <Character 
-                action={isRunning ? 'walk' : 'idle'} 
-                x={x} 
-                y={y} 
-             />
+          <Character 
+            action={`${isRunning ? 'jalan' : 'idle'}_${facing}`} 
+            x={x} 
+            y={y} 
+            facing={facing}
+          />
 
-               
               )}
             </div>
           );

@@ -1,26 +1,26 @@
-export const directions = {
-  NORTH_EAST: { row: -1, col: 1 },
-  SOUTH_EAST: { row: 1, col: 1 },
-  SOUTH_WEST: { row: 1, col: -1 },
-  NORTH_WEST: { row: -1, col: -1 },
+// utils/Movement.js
+
+export const moveOneStep = (position, direction) => {
+  const { row, col } = position;
+
+  switch (direction) {
+    case 'SOUTH_EAST': return { row: row + 1, col: col + 1 };
+    case 'SOUTH_WEST': return { row: row + 1, col: col - 1 };
+    case 'NORTH_EAST': return { row: row - 1, col: col + 1 };
+    case 'NORTH_WEST': return { row: row - 1, col: col - 1 };
+    default: return position;
+  }
 };
 
-export function moveOneStep(position, facing) {
-  const dir = directions[facing];
-  return {
-    row: position.row + dir.row,
-    col: position.col + dir.col,
-  };
-}
+export const rotateDirection = (current, turn) => {
+  const directions = ['NORTH_EAST', 'NORTH_WEST', 'SOUTH_WEST', 'SOUTH_EAST'];
+  let index = directions.indexOf(current);
 
-export function rotateDirection(currentFacing, direction) {
-  const facingOrder = ["NORTH_EAST", "SOUTH_EAST", "SOUTH_WEST", "NORTH_WEST"];
-  const currentIndex = facingOrder.indexOf(currentFacing);
+  if (turn === 'left') {
+    index = (index + 1) % 4;
+  } else if (turn === 'right') {
+    index = (index + 3) % 4;
+  }
 
-  const newIndex =
-    direction === "left"
-      ? (currentIndex + 3) % 4
-      : (currentIndex + 1) % 4;
-
-  return facingOrder[newIndex];
-}
+  return directions[index];
+};

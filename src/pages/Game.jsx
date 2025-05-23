@@ -6,9 +6,6 @@ import GameSlidebar from '../components/GameSlidebar';
 import GameGrid from '../components/GameGrid';
 import { moveOneStep, rotateDirection } from '../utils/Movement';
 
-const [facing, setFacing] = useState("SOUTH_EAST"); // default arah hadap
-
-
 const initialMap = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 1, 0, 0],
@@ -28,49 +25,45 @@ const Game = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
+  const [facing, setFacing] = useState("SELATAN_TIMUR"); // default arah hadap
   // 🧹 Clear Program
   const handleClearProgram = () => {
     setProgramList([]);
   };
 
-const movePlayer = (direction) => {
-  const { row, col } = playerPosition;
-  let newRow = row;
-  let newCol = col;
-
-  switch (direction) {
-    case 'forward':
-      newRow += 1;
-      newCol += 1;
-      break;
-    case 'left':
-      newRow += 1;
-      newCol -= 1;
-      break;
-    case 'right':
-      newRow -= 1;
-      newCol += 1;
-      break;
-    case 'backward':
-      newRow -= 1;
-      newCol -= 1;
-      break;
-    default:
-      break;
-  }
+const movePlayer = () => {
+  const newPos = moveOneStep(playerPosition, facing);
+  const { row, col } = newPos;
 
   if (
-    newRow >= 0 &&
-    newRow < map.length &&
-    newCol >= 0 &&
-    newCol < map[0].length &&
-    map[newRow][newCol] !== 1
+    row >= 0 &&
+    row < map.length &&
+    col >= 0 &&
+    col < map[0].length &&
+    map[row][col] !== 1
   ) {
-    setPlayerPosition({ row: newRow, col: newCol });
+    setPlayerPosition(newPos);
   }
 };
 
+const arahPutar = ['UTARA_TIMUR', 'UTARA_BARAT', 'SELATAN_BARAT', 'SELATAN_TIMUR'];
 
+const rotateDirection = (current, turn) => {
+  let index = arahPutar.indexOf(current);
+  if (turn === 'left') index = (index + 1) % 4;
+  else if (turn === 'right') index = (index + 3) % 4;
+  return arahPutar[index];
+};
+
+
+
+const rotateLeft = () => {
+  setFacing((prev) => rotateDirection(prev, "left"));
+};
+
+const rotateRight = () => {
+  setFacing((prev) => rotateDirection(prev, "right"));
+};
 
 
   // 💡 Nyalakan atau matikan lampu
@@ -89,15 +82,19 @@ const movePlayer = (direction) => {
     }
   };
 
-  // 🧠 Jalankan 1 instruksi
 const handleSingleInstruction = (command) => {
-  if (command.includes('maju')) movePlayer('forward');
-  else if (command.includes('kanan')) movePlayer('up-right');
-  else if (command.includes('kiri')) movePlayer('down-left');
-  else if (command.includes('lompat')) movePlayer('up-left'); // bisa diubah
-  else if (command.includes('Power')) activateLight();
+  if (command.includes('maju')) {
+    movePlayer(); // ✅ cukup panggil tanpa parameter
+  } else if (command.includes('kiri')) {
+    setFacing((prev) => rotateDirection(prev, 'left')); // ✅ update facing pakai setState
+  } else if (command.includes('kanan')) {
+    setFacing((prev) => rotateDirection(prev, 'right')); // ✅ sama
+  } else if (command.includes('lompat')) {
+    movePlayer(); // 🟡 sementara pakai move biasa (bisa ditambah logika lompatan nanti)
+  } else if (command.includes('Power')) {
+    activateLight();
+  }
 };
-
 
   // ▶ Jalankan seluruh program
   const runProgram = () => {
@@ -159,6 +156,7 @@ const handleSingleInstruction = (command) => {
         map={map} 
         playerPosition={playerPosition}
         isRunning={isRunning}
+        facing={facing}
       />
 
       </div>
