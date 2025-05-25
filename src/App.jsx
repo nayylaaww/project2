@@ -1,11 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
-import LandingPage from './pages/LandingPage'
-import GameInfo from './pages/GameInfo'
-import Achievement from './pages/Achievment'
-import Login from './pages/Login'
-import Tutorial from './pages/Tutorial'
-import LevelPage from './pages/LevelPage'
-import Game from './pages/Game'
+import { Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import GameInfo from './pages/GameInfo';
+import Achievement from './pages/Achievment';
+import Login from './pages/Login';
+import Tutorial from './pages/Tutorial';
+import LevelPage from './pages/LevelPage';
+import Game from './pages/Game';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 
