@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './LevelPage.css';
+import './levelPage.css';
 import { useNavigate } from 'react-router-dom';
 
 function LevelPage() {
