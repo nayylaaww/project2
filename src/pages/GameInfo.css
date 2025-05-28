@@ -16,13 +16,6 @@
     font-size: 21px;
     font-family: 'Times New Roman', Times, serif;
   }
-  
-  .content {
-    background-color: rgba(139, 139, 139, 0.5);
-    padding: 6rem;
-    border-radius: 2rem;
-    max-width: 1000px;
-  }
 
   .close-btn-home {
     position: absolute;
@@ -57,4 +50,80 @@ background-color: blue;
 .logo img {
   height: 100%;
   width: auto;
+}
+
+.content {
+  width: 100%;
+  max-width: 900px;
+  margin-top: -20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* jarak antar dropdown */
+  align-items: center;
+}
+
+
+.dropdown-info {
+  margin-bottom: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.dropdown-title {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 1.2rem;
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.dropdown-content.open {
+  max-height: 300px;
+  padding: 1rem 1.2rem;
+}
+
+.dropdown-section {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-description {
+  margin-top: 0.5rem;
+  text-align: center;
+  display: none;
+}
+
+.dropdown-section.open .dropdown-description {
+  display: block;
 }
