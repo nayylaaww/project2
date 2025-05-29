@@ -25,7 +25,7 @@ const LightbotEmbed = () => {
       transform: translateX(-50%) !important;
       width: -200px !important;
       height: 50px !important;
-      background: rgba(75, 70, 70, 0.8) !important;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
       display: flex !important;
       gap: 8px !important;
       padding: 8px 30px !important;
@@ -36,12 +36,12 @@ const LightbotEmbed = () => {
     /* PANEL INSTRUKSI */
     #instructionsContainer {
       position: fixed !important;
-      top: 60px !important;
+      top: 50px !important;
       right: 10px !important;
-      width: 280px !important;
-      max-height: calc(50vh - 70px) !important;
-      background: rgba(75, 70, 70, 0.9) !important;
-      border-radius: 8px !important;
+      width: 350px !important;
+      height: 300px !important;
+      max-height: calc(65vh - 70px) !important;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
       overflow: auto !important;
       z-index: 50 !important;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
@@ -51,12 +51,11 @@ const LightbotEmbed = () => {
     /* PANEL PROGRAM */
     #programContainer {
       position: fixed !important;
-      bottom: 10px !important;
+      bottom: 30px !important;
       right: 10px !important;
-      width: 280px !important;
-      max-height: calc(50vh - 20px) !important;
-      background: rgba(75, 70, 70, 0.9) !important;
-      border-radius: 8px !important;
+      width: 350px !important;
+      max-height: calc(65vh - 20px) !important;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
       overflow: auto !important;
       z-index: 50 !important;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
@@ -127,7 +126,7 @@ const LightbotEmbed = () => {
       }
     };
   }, []);
-
+  
   return (
     <iframe
       ref={iframeRef}

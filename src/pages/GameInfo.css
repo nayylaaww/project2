@@ -7,7 +7,7 @@
     margin-bottom: -5rem;
     width: 100vw;
     padding: 5rem 2rem;
-    color: white;
+    color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,78 +52,47 @@ background-color: blue;
   width: auto;
 }
 
-.content {
-  width: 100%;
-  max-width: 900px;
-  margin-top: -20rem;
+.tab-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* jarak antar dropdown */
-  align-items: center;
+  gap: 30px;
+  width: 300px;
+  height: 100px;
+  margin-top: 20px;
+  align-items: flex-start;
+  position: absolute;
+  top: 180px;
+  left: 450px;
 }
 
 
-.dropdown-info {
-  margin-bottom: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.dropdown-title {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  background: transparent;
-  color: white;
+.tab-button {
+  padding: 12px 20px;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.726);
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  text-align: center;
-  outline: none;
-}
-
-.dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  padding: 0 1.2rem;
-  color: white;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.dropdown-content.open {
-  max-height: 300px;
-  padding: 1rem 1.2rem;
-}
-
-.dropdown-section {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dropdown-title {
   font-weight: bold;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dropdown-description {
-  margin-top: 0.5rem;
+  transition: background-color 0.3s;
   text-align: center;
-  display: none;
 }
 
-.dropdown-section.open .dropdown-description {
-  display: block;
+.tab-button.active,
+.tab-button:hover {
+   background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6));
+  color: white;
+}
+
+
+.tab-content {
+  margin-top: 50px;
+  height: 650px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.726);
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: 850px;
+  margin-right: auto;
+  text-align: center;
 }
