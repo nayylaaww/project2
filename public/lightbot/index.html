@@ -7,6 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css' />
     <link type="text/css" href="css/lightbot.min.css" rel="stylesheet" />
+    <script type="module" src="../../src/firebase/firebaseConfig.js"></script>
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
     <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
@@ -139,7 +140,7 @@
 
       <div id="gameScreen" class="ui-screen ui-helper-hidden">
         <div id="canvasContainer">
-          <canvas id="gameCanvas" width="690" height="666"></canvas>
+          <canvas id="gameCanvas" width="690" height="666" style="transform: scale(1.25);"></canvas>
         </div>
         <div id="buttonContainer">
           <button class="levelSelectButton">Back</button>

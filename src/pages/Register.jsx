@@ -1,8 +1,9 @@
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebase/firebaseConfig';
 import './Register.css';
-import { auth } from '../firebase/firebaseConfig'; 
 
 
 const Register = () => {
@@ -12,26 +13,40 @@ const Register = () => {
   const navigate = useNavigate();
   const auth = getAuth();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        return updateProfile(userCredential.user, { displayName: username });
-      })
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        alert(error.message);
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      await updateProfile(user, { displayName: username });
+
+      await setDoc(doc(db, 'users', user.uid), {
+        uid: user.uid,
+        email: user.email,
+        name: username,
+        createdAt: new Date(),
+        levels: {
+          level1: false,
+          level2: false,
+          level3: false,
+          level4: false,
+          level5: false,
+        }
       });
+
+      navigate('/');
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
     <div className="login-page">
 
-        <div className="logo">
-                <img src="/logo.png" alt="logo-img" />
-            </div>
+      <div className="logo">
+        <img src="/logo.png" alt="logo-img" />
+      </div>
 
       <button className="back-btn-home" onClick={() => navigate('/')}>🏠︎</button>
 
@@ -40,27 +55,27 @@ const Register = () => {
           <img src="/tulisan-register.png" alt="Register" className="tulisan-login" />
         </div>
 
-              <input
-                type="text"
-                placeholder="Username"
-                className="input-username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="input-email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="input-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+        <input
+          type="text"
+          placeholder="Username"
+          className="input-username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          className="input-email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="input-password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <div className="btn-group">
           <button className="register-btn" onClick={handleRegister}>Register</button>

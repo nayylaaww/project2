@@ -40,3 +40,61 @@
 background-color: blue;
   }
 
+.achie-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 !important;
+}
+
+.achie-level {
+  color: white;
+  background: linear-gradient(90deg,rgba(94, 90, 115, 0.8) 0%, rgba(77, 60, 138, 0.8) 54%) !important;
+  padding-inline: 20px;
+  padding-block: 8px;
+  border-radius: 9999px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 !important;
+}
+
+.achie-item {
+  background-color: #a8a8a8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  height: fit-content;
+  margin: 0 !important;
+  padding-inline: 24px;
+  width: 100%;
+  position: relative;
+}
+
+.achie-locked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.achie-side {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 16px;
+  margin: 0 !important;
+}
+
+.achie-container {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

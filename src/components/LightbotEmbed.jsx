@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const LightbotEmbed = () => {
-  const iframeRef = useRef(null);
+  const iframeRef = useRef(4);
 
   // CSS Custom untuk modifikasi tampilan Lightbot
   const customCSS = `
@@ -20,45 +20,139 @@ const LightbotEmbed = () => {
     /* NAVBAR BUTTONS DI ATAS */
     #buttonContainer {
       position: fixed !important;
-      top: 10px !important;
-      left: 50% !important;
+      top: 0 !important;
+      left: 51.5% !important;
       transform: translateX(-50%) !important;
-      width: -200px !important;
+      width: 100% !important;
       height: 50px !important;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
+      background: linear-gradient(90deg,rgba(94, 90, 115, 0.8) 0%, rgba(77, 60, 138, 0.8) 54%) !important;
       display: flex !important;
       gap: 8px !important;
-      padding: 8px 30px !important;
-      border-radius: 20px !important;
+      padding: 12px 36px !important;
       z-index: 100 !important;
+      align-items: center;
+    }
+
+    #buttonContainer button:nth-child(1), #clearButton, #runButton {
+      height: fit-content;
+      background-color: #a8a8a8;
+      padding: 4px 16px !important;
+      border: 1px solid #a8a8a8 !important;
+      border-radius: 9999px !important;
+    }
+
+    #buttonContainer button:nth-child(2) {
+      height: fit-content;
+      background-color: #a8a8a8;
+      padding: 4px 32px !important;
+      border: 1px solid #a8a8a8 !important;
+      border-radius: 9999px !important;
+    }
+
+    #buttonContainer button:nth-child(1) span:nth-child(1), #clearButton span:nth-child(1), #runButton span:nth-child(1) {
+      display: none !important;
+    }
+
+    #buttonContainer button:nth-child(1) span:nth-child(2), #clearButton span:nth-child(2), #runButton span:nth-child(2) {
+      padding: 0 !important;
+      margin: 0 !important;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 900;
     }
 
     /* PANEL INSTRUKSI */
     #instructionsContainer {
       position: fixed !important;
-      top: 50px !important;
-      right: 10px !important;
+      top: 0px !important;
+      right: 0px !important;
       width: 350px !important;
-      height: 300px !important;
-      max-height: calc(65vh - 70px) !important;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
-      overflow: auto !important;
-      z-index: 50 !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-  
+      height: fit-content !important;
+      background: linear-gradient(90deg,rgba(94, 90, 115, 0.8) 0%, rgba(77, 60, 138, 0.8) 54%) !important;
+      overflow: hidden !important;
+      z-index: 100 !important;
+      // box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+      padding-inline: 20px !important;
+      padding-top: 12px !important;
+    }
+
+    #instructionsContainer h2 {
+      height: fit-content;
+      background-color: #a8a8a8;
+      padding: 4px 32px !important;
+      border: 1px solid #a8a8a8 !important;
+      border-radius: 9999px !important;
+      margin: 0 !important;
+      text-transform: uppercase;
+      font-size: 28px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    #instructionsContainer div {
+      margin-top: 18px;
+      margin-bottom: 2px;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+    }
+
+    #instructionsContainer div ul {
+      background-color: #a8a8a8;
+      margin: 10px 12px;
+      padding: 12px !important;
+      border-radius: 16px;
+    }
+
+    #instructionsContainer div ul li {
+      background: linear-gradient(90deg,rgba(94, 90, 115, 1) 0%, rgba(77, 60, 138, 1) 54%) !important;
     }
 
     /* PANEL PROGRAM */
     #programContainer {
       position: fixed !important;
-      bottom: 30px !important;
-      right: 10px !important;
+      top: 368.4px !important;
+      right: 0px !important;
       width: 350px !important;
-      max-height: calc(65vh - 20px) !important;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(106, 13, 173, 0.6), rgba(0, 15, 27, 0.6)) !important;
+      height: calc(100vh - 368.4px) !important;
+      background: linear-gradient(90deg,rgba(94, 90, 115, 0.8) 0%, rgba(77, 60, 138, 0.8) 54%) !important;
       overflow: auto !important;
       z-index: 50 !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+      // box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+      padding-inline: 20px !important;
+      padding-top: 8px !important;
+    }
+
+    
+    #programContainer h2 {
+      height: fit-content;
+      background-color: #a8a8a8;
+      padding: 4px 32px !important;
+      border: 1px solid #a8a8a8 !important;
+      border-radius: 9999px !important;
+      margin: 0 !important;
+      text-transform: uppercase;
+      font-size: 28px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    #programContainer div {
+      margin-top: 18px;
+      margin-bottom: 2px;
+      border-top: 2px solid white;
+    }
+
+    #programContainer div ul {
+      background-color: #a8a8a8;
+      margin: 10px 12px;
+      padding: 12px !important;
+      border-radius: 16px;
+      padding-bottom: 4px !important;
+      margin-bottom: 0px !important;
+    }
+
+    #programContainer div ul li {
+      background: linear-gradient(90deg,rgba(94, 90, 115, 1) 0%, rgba(77, 60, 138, 1) 54%) !important;
     }
 
     /* ITEM LIST */
@@ -86,7 +180,7 @@ const LightbotEmbed = () => {
 
   useEffect(() => {
     const iframe = iframeRef.current;
-    
+
     iframe.onload = () => {
       // Inject CSS Custom
       const style = iframe.contentDocument.createElement('style');
@@ -99,6 +193,8 @@ const LightbotEmbed = () => {
           const canvas = document.getElementById('gameCanvas');
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
+          console.log(canvas.width)
+          console.log(canvas.height)
           if (window.gameResize) gameResize();
         }
         
@@ -126,12 +222,12 @@ const LightbotEmbed = () => {
       }
     };
   }, []);
-  
+
   return (
     <iframe
       ref={iframeRef}
       src="/lightbot/index.html"
-      style={{ 
+      style={{
         width: '638%',
         height: '100vh',
         border: 'none',
