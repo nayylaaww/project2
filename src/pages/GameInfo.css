@@ -56,20 +56,21 @@ background-color: blue;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 300px;
+  width: 400px;
   height: 100px;
-  margin-top: 20px;
+  margin-top: 90px;
   align-items: flex-start;
   position: absolute;
   top: 180px;
   left: 450px;
+
 }
 
 
 .tab-button {
-  padding: 12px 20px;
-  width: 350px;
-  background-color: rgba(0, 0, 0, 0.726);
+  padding: 20px 20px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.418);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -89,10 +90,11 @@ background-color: blue;
   margin-top: 50px;
   height: 650px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.726);
+  background-color: rgba(255, 255, 255, 0.418);
   border-radius: 8px;
+  margin-bottom: -100px;
   max-width: 600px;
-  margin-left: 850px;
+  margin-left: 1050px;
   margin-right: auto;
   text-align: center;
 }
